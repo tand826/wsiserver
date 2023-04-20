@@ -12,6 +12,7 @@ from openslide.deepzoom import DeepZoomGenerator
 import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument("wsi", type=str, help="path to the WSI to load")
+parser.add_argument("--port", type=int, default=31791, help="port to listen on")
 parser.add_argument("--tile_size", type=int, default=256, help="tile size")
 args = parser.parse_args()
 
@@ -72,7 +73,7 @@ async def tile(x: int, y: int, level: int):
 
 
 def main():
-    uvicorn.run("wsiserver.app:app", port=31791, log_level="info")
+    uvicorn.run("wsiserver.app:app", port=args.port, log_level="info")
 
 
 if __name__ == "__main__":
