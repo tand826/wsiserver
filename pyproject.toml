@@ -14,8 +14,9 @@ classifiers = [
     "Programming Language :: Python :: 3.9",
 ]
 dependencies = [
-    "openslide-python",
     "fastapi",
+    "openslide-python",
+    "pillow",
     "uvicorn"
 ]
 dynamic = ["version"]
