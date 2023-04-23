@@ -73,7 +73,7 @@ async def tile(x: int, y: int, level: int):
 
 
 def main():
-    uvicorn.run("wsiserver.app:app", port=args.port, log_level="info")
+    uvicorn.run("wsiserver.app:app", host="0.0.0.0", port=args.port, log_level="info")
 
 
 if __name__ == "__main__":
