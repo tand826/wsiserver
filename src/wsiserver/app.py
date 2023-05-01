@@ -1,5 +1,6 @@
 from io import BytesIO
 import math
+import argparse
 
 from fastapi import FastAPI
 from fastapi.responses import Response
@@ -9,12 +10,15 @@ from PIL import Image
 import openslide
 from openslide.deepzoom import DeepZoomGenerator
 
-import argparse
+import wsiserver
+
+
 parser = argparse.ArgumentParser()
 parser.add_argument("wsi", type=str, help="path to the WSI to load")
 parser.add_argument("--host", type=str, default="0.0.0.0", help="host to listen on")
 parser.add_argument("--port", type=int, default=31791, help="port to listen on")
 parser.add_argument("--tile_size", type=int, default=256, help="tile size")
+parser.add_argument("--version", "-v", action="version" ,versino=wsiserver.__version__)
 args = parser.parse_args()
 
 app = FastAPI()
