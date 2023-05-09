@@ -18,7 +18,7 @@ parser.add_argument("wsi", type=str, help="path to the WSI to load")
 parser.add_argument("--host", type=str, default="0.0.0.0", help="host to listen on")
 parser.add_argument("--port", type=int, default=31791, help="port to listen on")
 parser.add_argument("--tile_size", type=int, default=256, help="tile size")
-parser.add_argument("--version", "-v", action="version" ,versino=wsiserver.__version__)
+parser.add_argument("--version", "-v", action="version", version=wsiserver.__version__)
 args = parser.parse_args()
 
 app = FastAPI()
